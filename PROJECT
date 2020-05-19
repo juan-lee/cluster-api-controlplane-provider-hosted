@@ -1,3 +1,7 @@
 domain: cluster.x-k8s.io
 repo: github.com/juan-lee/cluster-api-controlplane-provider-hosted
+resources:
+- group: controlplane
+  kind: HostedControlPlane
+  version: v1alpha3
 version: "2"
