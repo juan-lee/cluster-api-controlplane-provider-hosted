@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Package v1alpha3 contains API Schema definitions for the controlplane v1alpha3 API group
 package v1alpha3
 
 import (
@@ -58,6 +59,6 @@ type HostedControlPlaneList struct {
 	Items           []HostedControlPlane `json:"items"`
 }
 
-func init() {
+func init() { // nolint: gochecknoinits
 	SchemeBuilder.Register(&HostedControlPlane{}, &HostedControlPlaneList{})
 }

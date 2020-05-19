@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Package controllers defines the controllers for this operator
 package controllers
 
 import (
@@ -37,6 +38,7 @@ type HostedControlPlaneReconciler struct {
 // +kubebuilder:rbac:groups=controlplane.cluster.x-k8s.io,resources=hostedcontrolplanes,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=controlplane.cluster.x-k8s.io,resources=hostedcontrolplanes/status,verbs=get;update;patch
 
+// Reconcile reconciles the desired state of hosted control plane.
 func (r *HostedControlPlaneReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	_ = context.Background()
 	_ = r.Log.WithValues("hostedcontrolplane", req.NamespacedName)
@@ -46,6 +48,7 @@ func (r *HostedControlPlaneReconciler) Reconcile(req ctrl.Request) (ctrl.Result,
 	return ctrl.Result{}, nil
 }
 
+// SetupWithManager sets up the reconciler.
 func (r *HostedControlPlaneReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&controlplanev1alpha3.HostedControlPlane{}).
